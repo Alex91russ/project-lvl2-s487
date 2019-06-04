@@ -1,12 +1,12 @@
 {
   "name": "alexprog_difference-calculator",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Compares two configuration files and shows a difference.",
   "files": [
     "dist"
   ],
   "bin": {
-    "gendiffs": "dist/bin/gendiff.js"
+    "gendiff": "dist/bin/gendiff.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
