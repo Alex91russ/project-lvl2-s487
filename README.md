@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/8307aa0b02f534b8a21e/maintainability)](https://codeclimate.com/github/Alex91russ/project-lvl2-s487/maintainability)
 
-
+[![Build Status](https://travis-ci.org/Alex91russ/project-lvl2-s487.svg?branch=master)](https://travis-ci.org/Alex91russ/project-lvl2-s487)
 
 ## How to Install Difference Calculator
 
