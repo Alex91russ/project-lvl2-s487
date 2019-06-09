@@ -20,4 +20,4 @@
 
 ## run `gendiff <firstConfig> <secondConfig>` (comparing YML files)
 
-[![asciicast](https://asciinema.org/a/emGStKnUqq1pEibSMp92ftyTa.svg)](https://asciinema.org/a/emGStKnUqq1pEibSMp92ftyTa)
+[![asciicast](https://asciinema.org/a/lyJqET1bL8oORPNbEmaTJTDc6.svg)](https://asciinema.org/a/lyJqET1bL8oORPNbEmaTJTDc6)
