@@ -1,11 +1,9 @@
 // eslint-disable-next-line lodash-fp/use-fp
 import _ from 'lodash';
-import fs from 'fs';
-
-const parseFile = filePath => JSON.parse(fs.readFileSync(filePath, 'utf8'));
+import parser from './parsers';
 
 const genDiff = (firstPath, secondPath) => {
-  const [firstDate, secondDate] = [parseFile(firstPath), parseFile(secondPath)];
+  const [firstDate, secondDate] = [parser(firstPath), parser(secondPath)];
   const [firstDateKeys, secondDateKeys] = [Object.keys(firstDate), Object.keys(secondDate)];
   const allKeys = firstDateKeys.concat(secondDateKeys);
   const uniqKeys = _.uniq(allKeys);
