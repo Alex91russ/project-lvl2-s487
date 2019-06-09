@@ -2,13 +2,26 @@ import fs from 'fs';
 import genDiff from '../src';
 
 const path = '__tests__/__fixtures__/';
+const expected = fs.readFileSync(`${path}result.txt`, 'utf8');
 
-test('gendiff-json', () => {
-  const expected = fs.readFileSync(`${path}result.txt`, 'utf8');
-  expect(genDiff(`${path}json/before.json`, `${path}json/after.json`)).toBe(expected);
-});
+const arrayForTestJson = [
+  `${path}json/before.json`,
+  `${path}json/after.json`,
+];
 
-test('gendiff-yml', () => {
-  const expected = fs.readFileSync(`${path}result.txt`, 'utf8');
-  expect(genDiff(`${path}yml/before.yml`, `${path}yml/after.yml`)).toBe(expected);
-});
+const arrayForTestYml = [
+  `${path}yml/before.yml`,
+  `${path}yml/after.yml`,
+];
+
+const arrayForTestIni = [
+  `${path}ini/before.ini`,
+  `${path}ini/after.ini`,
+];
+
+test.each([arrayForTestJson, arrayForTestYml, arrayForTestIni])(
+  'test for genDiff(%s, %s)',
+  (firstPath, secondPath) => {
+    expect(genDiff(firstPath, secondPath)).toBe(expected);
+  },
+);
