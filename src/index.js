@@ -11,16 +11,14 @@ const genDiff = (firstPath, secondPath) => {
   const foundDiff = uniqKeys.reduce((acc, key) => {
     const [hasFirstKey, hasSecondKey] = [_.has(firstDate, key), _.has(secondDate, key)];
     const [firstValue, secondValue] = [firstDate[key], secondDate[key]];
-    if (hasFirstKey && hasSecondKey) {
-      if (firstValue === secondValue) {
-        acc = [...acc, `    ${key}: ${firstValue}`];
-      } else {
-        acc = [...acc, `  + ${key}: ${secondValue}`, `  - ${key}: ${firstValue}`];
-      }
-    } else {
-      acc = hasSecondKey ? [...acc, `  + ${key}: ${secondValue}`] : [...acc, `  - ${key}: ${firstValue}`];
+
+    if ((hasFirstKey && hasSecondKey) && (firstValue === secondValue)) {
+      return [...acc, `    ${key}: ${firstValue}`];
     }
-    return acc;
+    if ((hasFirstKey && hasSecondKey) && (firstValue !== secondValue)) {
+      return [...acc, `  + ${key}: ${secondValue}`, `  - ${key}: ${firstValue}`];
+    }
+    return hasSecondKey ? [...acc, `  + ${key}: ${secondValue}`] : [...acc, `  - ${key}: ${firstValue}`];
   }, []);
 
   return `{\n${foundDiff.join('\n')}\n}`;
