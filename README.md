@@ -21,3 +21,7 @@
 ## run `gendiff <firstConfig> <secondConfig>` (comparing YML files)
 
 [![asciicast](https://asciinema.org/a/lyJqET1bL8oORPNbEmaTJTDc6.svg)](https://asciinema.org/a/lyJqET1bL8oORPNbEmaTJTDc6)
+
+## run `gendiff <firstConfig> <secondConfig>` (comparing ini files)
+
+[![asciicast](https://asciinema.org/a/KlJ3x8YNTBBfbVIU4WB9zcIhX.svg)](https://asciinema.org/a/KlJ3x8YNTBBfbVIU4WB9zcIhX)
