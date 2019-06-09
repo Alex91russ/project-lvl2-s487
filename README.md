@@ -14,6 +14,10 @@
 
 [![asciicast](https://asciinema.org/a/zAnnbKbdjbKG9ZXAh0DlXS3n0.svg)](https://asciinema.org/a/zAnnbKbdjbKG9ZXAh0DlXS3n0)
 
-## run gendiff <firstConfig> <secondConfig>
+## run `gendiff <firstConfig> <secondConfig>` (comparing JSON files)
 
 [![asciicast](https://asciinema.org/a/tLzDfjGMdDfy6aMizIV03V58R.svg)](https://asciinema.org/a/tLzDfjGMdDfy6aMizIV03V58R)
+
+## run `gendiff <firstConfig> <secondConfig>` (comparing YML files)
+
+[![asciicast](https://asciinema.org/a/emGStKnUqq1pEibSMp92ftyTa.svg)](https://asciinema.org/a/emGStKnUqq1pEibSMp92ftyTa)
