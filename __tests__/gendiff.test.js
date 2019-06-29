@@ -10,24 +10,24 @@ const arrayForTestJson = [
   `${path}json/after.json`,
 ];
 
-const arrayWithAttachForTestJson = [
-  `${path}json/beforeWithAttachments.json`,
-  `${path}json/afterWithAttachments.json`,
-];
-
 const arrayForTestYml = [
   `${path}yml/before.yml`,
   `${path}yml/after.yml`,
 ];
 
-const arrayWithAttachForTestYml = [
-  `${path}yml/beforeWithAttachments.yml`,
-  `${path}yml/afterWithAttachments.yml`,
-];
-
 const arrayForTestIni = [
   `${path}ini/before.ini`,
   `${path}ini/after.ini`,
+];
+
+const arrayWithAttachForTestJson = [
+  `${path}json/beforeWithAttachments.json`,
+  `${path}json/afterWithAttachments.json`,
+];
+
+const arrayWithAttachForTestYml = [
+  `${path}yml/beforeWithAttachments.yml`,
+  `${path}yml/afterWithAttachments.yml`,
 ];
 
 const arrayWithAttachForTestIni = [
