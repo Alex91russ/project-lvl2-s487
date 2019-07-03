@@ -1,7 +1,19 @@
 // eslint-disable-next-line lodash-fp/use-fp
 import _ from 'lodash';
 
+const calculateTabs = depth => '  '.repeat(depth);
+
 const propertyActions = [
+  {
+    type: 'parent',
+    check: (dataOld, dataNew, key) => dataOld[key] instanceof Object
+      && dataNew[key] instanceof Object,
+    process: (dataOld, dataNew, key, func) => ({
+      name: key,
+      status: 'parent',
+      value: func(dataOld[key], dataNew[key]),
+    }),
+  },
   {
     type: 'added',
     check: (dataOld, dataNew, key) => !_.has(dataOld, key),
@@ -44,54 +56,66 @@ const propertyActions = [
 const getPropertyAction = (dataOld, dataNew, key) => propertyActions
   .find(({ check }) => check(dataOld, dataNew, key));
 
-const buildString = (name, value, sign) => `  ${sign} ${name}: ${value}`;
+const stringify = (value, depth) => {
+  if (!(value instanceof Object)) {
+    return value;
+  }
+  const jsonStr = JSON.stringify(value, null, 2).replace(/"/g, '');
+  const formatStr = jsonStr.split('\n').map((element, i) => {
+    if (i === 0) {
+      return element;
+    }
+    return `${calculateTabs(depth + 1)}${element}`;
+  });
+  return formatStr.join('\n');
+};
+
+const buildString = (name, value, sign, depth) => `${calculateTabs(depth)}${sign} ${name}: ${stringify(value, depth)}`;
 
 export const makeAst = (dataOld, dataNew) => {
-  console.log('dataOld: ', dataOld);
-  console.log('dataNew: ', dataNew);
   const [firstDateKeys, secondDateKeys] = [Object.keys(dataOld), Object.keys(dataNew)];
   const allKeys = firstDateKeys.concat(secondDateKeys);
   const uniqKeys = _.uniq(allKeys);
-  console.log('uniqKeys: ', uniqKeys);
   return uniqKeys.map((key) => {
-    console.log('key: ', key);
     const node = getPropertyAction(dataOld, dataNew, key);
-    console.log('node: ', node);
-    return node.process(dataOld, dataNew, key);
+    return node.process(dataOld, dataNew, key, makeAst);
   });
 };
 
-export const renderAst = (ast) => {
+export const renderAst = (ast, level = 0) => {
   const renderMethods = {
-    added: (node) => {
+    added: (node, depth) => {
       const { name, newValue } = node;
-      const str = buildString(name, newValue, '+');
+      const str = buildString(name, newValue, '+', depth);
       return str;
     },
-    deleted: (node) => {
+    deleted: (node, depth) => {
       const { name, oldValue } = node;
-      const str = buildString(name, oldValue, '-');
+      const str = buildString(name, oldValue, '-', depth);
       return str;
     },
-    changed: (node) => {
+    changed: (node, depth) => {
       const { name, oldValue, newValue } = node;
-      const strNew = buildString(name, newValue, '+');
-      const strOld = buildString(name, oldValue, '-');
+      const strNew = buildString(name, newValue, '+', depth);
+      const strOld = buildString(name, oldValue, '-', depth);
       return `${strNew}\n${strOld}`;
     },
-    unchanged: (node) => {
+    unchanged: (node, depth) => {
       const { name, value } = node;
-      const str = buildString(name, value, ' ');
+      const str = buildString(name, value, ' ', depth);
       return str;
+    },
+    parent: (node, depth, func) => {
+      const { name, value } = node;
+      const deepNodes = func(value, depth + 1);
+      return `${calculateTabs(depth)}  ${name}: ${deepNodes}`;
     },
   };
 
   const tree = ast.reduce((acc, node) => {
-    console.log('ast: ', ast);
     const { status } = node;
-    console.log('status: ', status);
     const method = renderMethods[status];
-    return `${acc}${method(node)}\n`;
+    return `${acc}\n${method(node, level, renderAst)}`;
   }, '');
-  return `{\n${tree}}\n`;
+  return `{${tree}\n${calculateTabs(level)}}`;
 };
