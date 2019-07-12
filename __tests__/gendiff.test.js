@@ -4,6 +4,8 @@ import genDiff from '../src';
 const path = '__tests__/__fixtures__/';
 const expected = fs.readFileSync(`${path}result.txt`, 'utf8');
 const expected2 = fs.readFileSync(`${path}resultWithAttachments.txt`, 'utf8');
+const expected3 = fs.readFileSync(`${path}resultPlain.txt`, 'utf8');
+const expected4 = fs.readFileSync(`${path}resultPlainWithAttachments.txt`, 'utf8');
 
 const arrayForTestJson = [
   `${path}json/before.json`,
@@ -42,9 +44,23 @@ test.each([arrayForTestJson, arrayForTestYml, arrayForTestIni])(
   },
 );
 
-test.each([arrayWithAttachForTestJson, arrayWithAttachForTestYml, arrayWithAttachForTestIni])(
+test.each([arrayForTestJson, arrayForTestYml, arrayForTestIni])(
   'test for genDiff(%s, %s)',
   (firstPath, secondPath) => {
+    expect(genDiff(firstPath, secondPath, 'plain')).toBe(expected3);
+  },
+);
+
+test.each([arrayWithAttachForTestJson, arrayWithAttachForTestYml, arrayWithAttachForTestIni])(
+  'test for genDiff(%s, %s))',
+  (firstPath, secondPath) => {
     expect(genDiff(firstPath, secondPath)).toBe(expected2);
+  },
+);
+
+test.each([arrayWithAttachForTestJson, arrayWithAttachForTestYml, arrayWithAttachForTestIni])(
+  'test for genDiff(%s, %s))',
+  (firstPath, secondPath) => {
+    expect(genDiff(firstPath, secondPath, 'plain')).toBe(expected4);
   },
 );

@@ -1,6 +1,6 @@
 {
   "name": "alexprog_difference-calculator",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Compares two configuration files and shows a difference.",
   "files": [
     "dist"
@@ -21,8 +21,7 @@
   "keywords": [
     "difference-calculator",
     "alexprog",
-    "hexlet",
-    "fun-games"
+    "hexlet"
   ],
   "author": "Alexander Kochetkov",
   "license": "ISC",

@@ -37,3 +37,7 @@
 ## run `gendiff <firstConfig> <secondConfig>` (comparing ini files with attachments)
 
 [![asciicast](https://asciinema.org/a/EVpbii0JfCiZJJMUx2e0ekJDV.svg)](https://asciinema.org/a/EVpbii0JfCiZJJMUx2e0ekJDV)
+
+## run `gendiff <firstConfig> <secondConfig> <plain>` (format plain)
+
+[![asciicast](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv.svg)](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv)

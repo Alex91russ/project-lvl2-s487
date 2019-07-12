@@ -8,9 +8,9 @@ program
   .version(version)
   .description(description)
   .arguments('<firstConfig> <secondConfig>')
-  .option('-f, --format <type>', 'output format')
-  .action((firstConfig, secondConfig, options) => {
-    const result = genDiff(firstConfig, secondConfig, options.format);
+  .option('-f, --format <type>', 'output format', 'tree')
+  .action((firstConfig, secondConfig) => {
+    const result = genDiff(firstConfig, secondConfig, program.format);
     console.log(result);
   })
   .parse(process.argv);
