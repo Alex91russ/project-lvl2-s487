@@ -41,3 +41,7 @@
 ## run `gendiff <firstConfig> <secondConfig> <plain>` (format plain)
 
 [![asciicast](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv.svg)](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv)
+
+## run `gendiff <firstConfig> <secondConfig> <json>` (format json)
+
+[![asciicast](https://asciinema.org/a/xkOxpFABD1ErGgdfwsTbY7OMb.svg)](https://asciinema.org/a/xkOxpFABD1ErGgdfwsTbY7OMb)
