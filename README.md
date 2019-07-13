@@ -38,10 +38,10 @@
 
 [![asciicast](https://asciinema.org/a/EVpbii0JfCiZJJMUx2e0ekJDV.svg)](https://asciinema.org/a/EVpbii0JfCiZJJMUx2e0ekJDV)
 
-## run `gendiff <firstConfig> <secondConfig> <plain>` (format plain)
+## run `gendiff <firstConfig> <secondConfig>` (format plain)
 
-[![asciicast](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv.svg)](https://asciinema.org/a/2B3gd0FmoCpczxYeSnYyw7ZEv)
+[![asciicast](https://asciinema.org/a/CsJA7cP11aTWrVudTU2fWCn3S.svg)](https://asciinema.org/a/CsJA7cP11aTWrVudTU2fWCn3S)
 
-## run `gendiff <firstConfig> <secondConfig> <json>` (format json)
+## run `gendiff <firstConfig> <secondConfig>` (format json)
 
 [![asciicast](https://asciinema.org/a/xkOxpFABD1ErGgdfwsTbY7OMb.svg)](https://asciinema.org/a/xkOxpFABD1ErGgdfwsTbY7OMb)
