@@ -1,12 +1,10 @@
 import makePlain from './plain';
 import makeTree from './tree';
 
-const makeJson = format => JSON.stringify(format);
-
 const formats = {
   tree: makeTree,
   plain: makePlain,
-  json: makeJson,
+  json: JSON.stringify,
 };
 
 const getFormat = format => formats[format];

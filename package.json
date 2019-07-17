@@ -1,6 +1,6 @@
 {
   "name": "alexprog_difference-calculator",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Compares two configuration files and shows a difference.",
   "files": [
     "dist"
@@ -33,6 +33,7 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-pipeline-operator": "^7.5.0",
     "@babel/preset-env": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
